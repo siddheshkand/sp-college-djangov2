@@ -63,6 +63,9 @@
             <button class="btn btn-outline-secondary" type="submit">Add</button>
           </div>
         </form>
+        <hr>
+        <p>{{ form.errors.as_text }}</p>
+
         <!-- <form method="post">
           {% csrf_token %}
           {{ form.as_p }}
