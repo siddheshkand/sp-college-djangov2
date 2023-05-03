@@ -73,8 +73,13 @@
       </form> -->
       </div>
       <div class="col-8 mt-5">
+        <!-- Without any filter -->
         <p>Total Task : {{count}}</p>
-        <p>Total Task : {{count}}</p>
+        <!-- In built Filters -->
+        <p>Total Task : {{todos | length }}</p>
+        <!-- Custom filter -->
+        {% load my_len_filter %}
+        <p>Total Task : {{todos | my_len }}</p>
         <ul class="list-group">
           {% for t in todos %}
           <li class="list-group-item">{{t.task}}</li>
