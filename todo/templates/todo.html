@@ -54,12 +54,15 @@
   <div class="container mt-5">
     <div class="row justify-content-center">
       <div class="col-8">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Add a Todo Item"
-            aria-label="Recipient's username with two button addons">
-
-          <button class="btn btn-outline-secondary" type="button">Add</button>
-        </div>
+        <form name="form" action="/todo" method="post">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Add a Todo Item"
+            aria-label="Recipient's username with two button addons" name="task">
+            
+            <button class="btn btn-outline-secondary" type="submit">Add</button>
+          </div>
+        </form>
       </div>
       <div class="col-8 mt-5">
         <ul class="list-group">
