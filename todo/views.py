@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from todo.models import Todo
 from todo.forms import TodoInputForm
 def hello_from_todo(request):
+    form_for_get = TodoInputForm()
     if request.method == 'POST':
         todo_form = TodoInputForm(request.POST)
         print(todo_form.errors)
@@ -13,7 +14,7 @@ def hello_from_todo(request):
             Todo.objects.create(task=data['task'])
     
     all_todo = Todo.objects.all()
-    return render(request,'todo.html',{'todos':all_todo})
+    return render(request,'todo.html',{'todos':all_todo,'form':form_for_get})
 
 def inside_todo(request):
     return HttpResponse("Inside From todo")
