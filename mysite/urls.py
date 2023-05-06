@@ -17,7 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from mysite.views import hello, about_us, my_func, blog
-
+from mysite import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',hello),
@@ -25,4 +26,4 @@ urlpatterns = [
     path('blog',blog),
     path('todo',include('todo.urls')),
     path('student',include('student.urls')),
-]
+] + static("/media", document_root=settings.MEDIA_ROOT)

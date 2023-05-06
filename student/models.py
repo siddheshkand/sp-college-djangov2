@@ -8,4 +8,4 @@ class Student(models.Model):
     aadhar_card = models.CharField(max_length=12)
     college = models.CharField(max_length=100)
     email = models.EmailField()
-    profile_picture = models.ImageField()
+    profile_picture = models.ImageField(upload_to='student_images')
