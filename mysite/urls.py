@@ -23,5 +23,6 @@ urlpatterns = [
     path('',hello),
     path('about-us',about_us),
     path('blog',blog),
-    path('todo',include('todo.urls'))
+    path('todo',include('todo.urls')),
+    path('student',include('student.urls')),
 ]
