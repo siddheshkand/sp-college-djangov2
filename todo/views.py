@@ -4,6 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 from todo.models import Todo
 from todo.forms import TodoInputForm
+
 def hello_from_todo(request):
     form_for_get = TodoInputForm()
     all_todo = Todo.objects.all()
