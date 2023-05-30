@@ -2,5 +2,46 @@
 
 {% block title %} Inside HTML{% endblock %}
 {% block content %}
-    <h1>Inside Html</h1>
+<h1>Inside Html</h1>
+{% endblock %}
+{% block script %}
+<script>
+    //  Java Script
+    let body = document.getElementsByTagName('body')[0];
+    let ul = document.createElement('ul')
+    let li1 = document.createElement('li')
+    li1.innerText = 'Task 1'
+    let li2 = document.createElement('li')
+    li2.innerText = 'Task 2'
+    ul.appendChild(li1)
+    ul.appendChild(li2)
+    body.appendChild(ul)
+    // Jquery
+    // $('body').append(
+    //     '<ul><li>Jquey task 1 </li><li>Jquey task 2 </li></ul>'
+    // )
+
+    $('body').append("<button id='change-color' class='btn btn-primary'>Change Color</button><br>");
+
+    $('#change-color').on('click', function (event) {
+        let myArray = ['yellow', 'red', 'green', 'blue'];
+        let random = Math.floor(Math.random() * myArray.length);
+        $('body').css("background-color", myArray[random])
+    })
+
+    $('body').append("<button id='get-data' class='btn btn-warning'>Get Data</button><br>");
+
+    $('#get-data').on('click', function (event) {
+
+        $.ajax({
+            url: "https://reqres.in/api/users",
+            success: function (result) {
+                result.data.forEach(element => {
+                    $('body').append(element.email+'<br>')
+                });
+            }
+        });
+    })
+
+</script>
 {% endblock %}
