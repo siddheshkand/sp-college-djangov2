@@ -23,4 +23,4 @@ def hello_from_todo(request):
     return render(request,'todo.html',{'todos':all_todo,'form':form_for_get,'count':all_todo.count()})
 
 def inside_todo(request):
-    return HttpResponse("Inside From todo")
+    return render(request,'inside.html')

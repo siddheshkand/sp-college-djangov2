@@ -4,5 +4,5 @@ urlpatterns = [
     # /todo
     path('',hello_from_todo),
     # /todo/inside
-    path('inside',inside_todo),
+    path('/inside',inside_todo),
 ]
